@@ -1,0 +1,16 @@
+.JSLiveEval {
+  text-align: center;
+}
+
+.flexContainer {
+  display: flex;
+}
+
+.evalInput {
+  flex: 1 1 0;
+  min-height: 200px;
+}
+
+.evalOutput {
+  flex: 1 1 0;
+}
