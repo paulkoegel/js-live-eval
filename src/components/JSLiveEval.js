@@ -1,7 +1,6 @@
 import React from 'react';
 import './JSLiveEval.css';
-// import input from "../input.js";
-import input from "../input";
+import Input from "./Input.js";
 
 const JSLiveEval = React.createClass({
 
@@ -13,11 +12,11 @@ const JSLiveEval = React.createClass({
     return(
       <div className="JSLiveEval">
         <h1>JSLiveEval</h1>
-        <p>{{ input }}</p>
-        {{ /*<div class="flexContainer">
+        <Input />
+        { /*<div class="flexContainer">
           <pre><code class="evalInput"> {{ this.props.evalInput }}</code></pre>
           <pre><code class="evalOutput"> {{ this.state.evalOutput }}</code></pre>
-          </div> */ }}
+          </div> */ }
       </div>
     );
   }
