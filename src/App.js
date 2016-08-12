@@ -10,11 +10,10 @@ const App = React.createClass({
   evaluateCode(func) {
     try {
       let x = func();
-      console.clear();
       return x;
     } catch (e) {
       console.log("Error in evaluateCode:", e);
-      return `Error in evaluateCode: ${JSON.stringify(e)}`
+      return `Error in evaluateCode: ${e}`
     }
   },
 
