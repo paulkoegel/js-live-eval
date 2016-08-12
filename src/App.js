@@ -1,10 +1,9 @@
 import React from 'react';
 import './App.css';
-import './highlightjs-idea.css';
+import 'highlight.js/styles/idea.css';
 import JSONTree from 'react-json-tree';
-import Highlight from 'react-highlight.js';
+import Highlight from 'react-highlight';
 import code from './playground/code';
-// import logo from './logo.svg';
 
 const App = React.createClass({
 
