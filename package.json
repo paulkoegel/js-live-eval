@@ -10,8 +10,7 @@
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-highlight": "^0.8.0",
-    "react-json-tree": "^0.10.0",
-    "react-prism": "^3.2.1"
+    "react-json-tree": "^0.10.0"
   },
   "scripts": {
     "start": "react-scripts start",
