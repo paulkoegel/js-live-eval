@@ -6,14 +6,12 @@ import Highlight from 'react-highlight';
 import code from './playground/code';
 
 const App = React.createClass({
-
   evaluateCode(func) {
     try {
-      let x = func();
-      return x;
+      return func();
     } catch (e) {
-      console.log("Error in evaluateCode:", e);
-      return `Error in evaluateCode: ${e}`
+      console.error('Error in evaluateCode:', e);
+      return `Error in evaluateCode: ${e}`;
     }
   },
 
@@ -24,7 +22,7 @@ const App = React.createClass({
       // cannot render objects directly in JSX
       // also add pretty printing
       return JSON.stringify(output, null, '  ');
-    } else if (typeof Array.isArray(output)) {
+    } else if (Array.isArray(output)) {
       // pretty-printed arrays take up too much space
       return JSON.stringify(output);
     } else {
@@ -33,19 +31,29 @@ const App = React.createClass({
   },
 
   render() {
+    const returnValue = this.evaluateCode(code.fnToEvaluate);
     return (
-      <div className="App">
-        <h1 className="title">JS Live Eval</h1>
-        <h2>Output</h2>
-        <pre className="output">
-          { this.formattedOutput(this.evaluateCode(code.fnToEvaluate)) }
-        </pre>
+      <div className='App'>
+        {returnValue &&
+          <div>
+            <h2>Returned Value</h2>
+            <pre className='output'>
+              {this.formattedOutput(returnValue)}
+            </pre>
+          </div>
+        }
 
-        <h2>Pretty Output</h2>
-        <JSONTree data={ this.evaluateCode(code.fnToEvaluate) } />
+        {returnValue &&
+          <div>
+            <h2>Pretty Output</h2>
+            <JSONTree data={returnValue} />
+          </div>
+        }
 
+        <br />
+        <br />
         <h2>Compiled Source Code (ES5)</h2>
-        <Highlight language="javascript" className="es5Source">
+        <Highlight language='javascript' className='es5Source'>
           { code.compiledSource }
         </Highlight>
         <br />
